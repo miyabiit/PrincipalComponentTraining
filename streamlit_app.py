@@ -40,3 +40,16 @@ num_pca = st.sidebar.number_input(
 
 pca = PCA(n_components = num_pca)
 pca.fit_transform(x_std)
+
+# show
+st.sidebar.markdown(
+        r"""
+        ### Select components to plot
+        """
+        )
+idx_x = st.sidebar.selectbox("X axis:", np.arange(1,num_pca+1),0)
+idx_y = st.sidebar.selectbox("Y axis:", np.arange(1,num_pca+1),1)
+idx_z = st.sidebar.selectbox("Z axis:", np.arange(1,num_pca+1),2)
+
+
+
