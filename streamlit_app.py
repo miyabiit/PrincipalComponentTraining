@@ -39,7 +39,7 @@ num_pca = st.sidebar.number_input(
         )
 
 pca = PCA(n_components = num_pca)
-pca.fit_transform(x_std)
+x_pca = pca.fit_transform(x_std)
 
 # show
 st.sidebar.markdown(
@@ -51,5 +51,12 @@ idx_x = st.sidebar.selectbox("X axis:", np.arange(1,num_pca+1),0)
 idx_y = st.sidebar.selectbox("Y axis:", np.arange(1,num_pca+1),1)
 idx_z = st.sidebar.selectbox("Z axis:", np.arange(1,num_pca+1),2)
 
+x_lbl = f"PCA{idx_x}"
+x_plot = x_pca[:,idx_x - 1]
 
+y_lbl = f"PCA{idx_y}"
+y_plot = x_pca[:,idx_y - 1]
+
+z_lbl = f"PCA{idx_z}"
+z_plot = x_pca[:,idx_z - 1]
 
