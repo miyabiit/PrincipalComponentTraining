@@ -60,3 +60,25 @@ y_plot = x_pca[:,idx_y - 1]
 z_lbl = f"PCA{idx_z}"
 z_plot = x_pca[:,idx_z - 1]
 
+trace1 = go.Scatter3d(
+    x=x_plot, y=y_plot, z=z_plot,
+    mode="markers",
+    marker=dict(
+        color=y,
+        size=5
+        )
+    )
+
+fig = go.Figure(data=[trace1])
+fig.update_layout(scene=dict(
+    xaxis_title = x_lbl,
+    yaxis_title = y_lbl,
+    zaxis_title = z_lbl),
+    width=700,
+    margin = dict(r=20,b=10,l=10,t=10),
+    )
+
+st.plotly_chart(fig, use_container_width=True)
+
+
+    
